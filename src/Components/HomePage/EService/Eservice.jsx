@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 export const ServiceCard = ({ icon, title, subtitle, price, image }) => {
   const location = useLocation();
-  const isService = location.pathname.includes('landing');
+  const isService = location.pathname.includes('eService');
 
   const formatPrice = (amount) => {
     return new Intl.NumberFormat("en-NG", {
