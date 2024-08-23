@@ -6,7 +6,7 @@ export const Eservicepage = ()=>{
     return(
         <div className="bg-gray-200 min-h-screen">
             <Hero/>
-            <Services />
+            {/* <Services /> */}
 
         </div>
     )

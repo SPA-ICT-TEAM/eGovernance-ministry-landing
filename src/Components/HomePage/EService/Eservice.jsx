@@ -1,7 +1,7 @@
 import { FiBriefcase, FiShoppingCart } from "react-icons/fi";
 import { useLocation } from "react-router-dom";
 
-export const ServiceCard = ({ icon, title, subtitle, price, image }) => {
+export const ServiceCard = ({ icon, title, subtitle, price, image, }) => {
   const location = useLocation();
   const isService = location.pathname.includes('eService');
 
@@ -29,7 +29,7 @@ export const ServiceCard = ({ icon, title, subtitle, price, image }) => {
           <p className="text-[20px] font-semibold">{title}</p>
           <p className="text-gray-400">{subtitle}</p>
         </div>
-        <p className="text-green-500 font-bold text-[18px]">{formatPrice(price)}</p>
+        <p className="text-green-500 text-center font-bold text-[18px]">{formatPrice(price)}</p>
         <div className={`flex w-full justify-between ${isService ? "block":"hidden"}`}>
           <button className="border p-3 rounded-lg hover:bg-gray-200">View Details</button>
           <div className="p-3 bg-green-600 text-white rounded-lg cursor-pointer hover:bg-green-500">
@@ -58,7 +58,7 @@ export const services = [
   },
 ];
 
-export const Eservice = () => {
+export const Eservice = ({ministry}) => {
   return (
     <section className="flex items-center justify-center bg-gray-200">
       <div className="container flex flex-col gap-14 items-center justify-center p-20">
