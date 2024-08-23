@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 export const NavBar = () => {
   return (
-    <nav className="p-4 bg-green-600 flex items-center justify-center">
+    <nav className="p-4 bg-green-600 fixed z-50 w-full flex items-center h-[70px] justify-center">
       <div className="container flex justify-between">
-        <img src={logo} alt="Logo" className="h-20 w-20" />
+        <img src={logo} alt="Logo" className="h-[46px] w-[50px]" />
         <div className="flex items-center gap-10">
           <ul className="flex items-center gap-12 text-white cursor-pointer">
             <li>
