@@ -5,19 +5,21 @@ import { NavBar } from "./Components/HomePage/NavBar";
 import { AboutPage } from "./Components/HomePage/About/Aboutpage";
 import { Eservicepage } from "./Components/HomePage/E-services/Eservices";
 import { OurService } from "./Components/HomePage/About/OurServices/Ourservice";
+import { UserProvider } from './Components/UserContext'; 
 
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/eService" element={<Eservicepage />} />
-        <Route path="/services" element={<OurService />} />
-
-      </Routes>
-    </Router>
+    <UserProvider> 
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/eService" element={<Eservicepage />} />
+          <Route path="/services" element={<OurService />} />
+        </Routes>
+      </Router>
+    </UserProvider>
   );
 }
 
