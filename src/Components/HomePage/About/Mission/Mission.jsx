@@ -1,11 +1,11 @@
 const InfoCard = ({ title, description }) => (
-    <div className="flex flex-col p-6 gap-4 max-w-[500px] bg-green-600 rounded-lg text-white">
+    <div className="flex flex-col p-6 gap-8 mx-4 w-[120%] bg-green-600 rounded-lg text-white">
       <p className="text-3xl text-center">{title}</p>
-      <p className="text-center">{description}</p>
+      <p className="text-center" dangerouslySetInnerHTML={{ __html: description }} />
     </div>
   );
   
-  export const Mission = () => {
+  export const Mission = ({ mission, vision}) => {
     const info = [
       {
         title: "Our Mission",
@@ -18,13 +18,11 @@ const InfoCard = ({ title, description }) => (
     ];
   
     return (
-      <section className="p-20 flex items-center justify-center">
+      <section className="p-20 w-full flex items-center justify-center">
         <div className="container flex w-full justify-between px-36">
-          {info.map((item, index) => (
-            <InfoCard key={index} title={item.title} description={item.description} />
-          ))}
+            <InfoCard title="Our Mission" description={mission} />
+            <InfoCard title="Our Vision" description={vision} />
         </div>
       </section>
     );
   }
-  

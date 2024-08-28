@@ -1,7 +1,8 @@
-import { services } from "../../EService/Eservice";
-import { ServiceCard } from "../../EService/Eservice";
+// import { services } from "../../EService/Eservice";
+// import { ServiceCard } from "../../EService/Eservice";
+import { ServiceCard } from "../../../Cards/ServiceCard";
 
-export const Services = () => {
+export const Services = ({ services }) => {
   return (
     <section className="flex items-center justify-center">
       <div className="container flex flex-col gap-14 items-center justify-start p-20">

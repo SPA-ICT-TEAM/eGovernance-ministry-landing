@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchMinistry = async () => {
       try {
-        const response = await axios.get('https://v2-etransport.enugustate.gov.ng/api/ministry');
+        const response = await axios.get('https://staging-etransport.enugustate.gov.ng/api/ministry');
         console.log(response.data.services.services);
         setMinistry(response.data);
       } catch (err) {

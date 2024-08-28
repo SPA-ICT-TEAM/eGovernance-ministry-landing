@@ -20,30 +20,8 @@ const ProjectCard = ({ imgSrc, title, description }) => {
   );
 };
 
-export const Project = () => {
-  const projects = [
-    {
-      imgSrc:
-        "https://etransport.enugustate.gov.ng/storage/images/ministry_image/TB4ygOfpxfFDuoj1U8jLBk8nvDGRaIdyrAuFngji.webp",
-      title: "Project Title 1",
-      description:
-        "The quick brown fox jumps over the lazy dog, the quick brown fox jumps over the lazy dog, the quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog, the quick brown fox jumps over the lazy dog.",
-    },
-    {
-      imgSrc:
-        "https://etransport.enugustate.gov.ng/storage/images/ministry_image/TB4ygOfpxfFDuoj1U8jLBk8nvDGRaIdyrAuFngji.webp",
-      title: "Project Title 2",
-      description:
-        "The quick brown fox jumps over the lazy dog, the quick brown fox jumps over the lazy dog, the quick brown fox jumps over the lazy dog.",
-    },
-    {
-      imgSrc:
-        "https://etransport.enugustate.gov.ng/storage/images/ministry_image/TB4ygOfpxfFDuoj1U8jLBk8nvDGRaIdyrAuFngji.webp",
-      title: "Project Title 3",
-      description:
-        "The quick brown fox jumps over the lazy dog, the quick brown fox jumps over the lazy dog, the quick brown fox jumps over the lazy dog.",
-    },
-  ];
+export const Project = ({ projects }) => {
+  
 
   return (
     <section className="flex items-center justify-center bg-gray-100">
@@ -59,8 +37,8 @@ export const Project = () => {
           {projects.map((project, index) => (
             <ProjectCard
               key={index}
-              imgSrc={project.imgSrc}
-              title={project.title}
+              imgSrc={project.image_path}
+              title={project.name}
               description={project.description}
             />
           ))}

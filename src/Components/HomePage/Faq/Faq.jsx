@@ -29,36 +29,12 @@ const ContactItem = ({ icon: Icon, title, description1, description2 }) => (
   </div>
 );
 
-export const Faq = () => {
+export const Faq = ({ faqs, details }) => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFaq = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
-  const faqData = [
-    {
-      question: "What is the mission of the Enugu Ministry of Transport?",
-      answer:
-        "The mission of the Enugu Ministry of Transport is to leverage transportation as a key catalyst for the economic transformation of Enugu State and the broader Southeast region, extending its impact into neighbouring Central Africa. This will be achieved by adopting a multimodal transport system, leveraging innovation and technology through smart transport solutions, and establishing a world-class, efficient traffic management system.",
-    },
-    {
-      question: "What is the Smart Transport Program (STP) and its focus areas?",
-      answer:
-        "The Smart Transport Program (STP) is an initiative set up by the Enugu Ministry of Transport to transform the transport sector. The STP focuses on four key thematic areas: digitization of ministry processes and e-payment, establishing a world-class traffic management system, developing a multi-modal transport system to reduce the carbon footprint, and creating jobs and empowerment opportunities for the youth through the transport sector.",
-    },
-    {
-      question: "What is the vision of the Enugu Ministry of Transport?",
-      answer:
-        "The vision of the Enugu Ministry of Transport is to build a world-class, efficient, sustainable, and smart transport system. This vision emphasizes modernization, enhancing infrastructure, promoting public transit, and ensuring a forward-looking and integrated transport system for seamless connectivity and sustainable mobility.",
-    },
-    {
-      question:
-        "How does the Enugu Ministry of Transport plan to achieve its mission and vision?",
-      answer:
-        "To achieve its mission and vision, the Enugu Ministry of Transport will implement the Smart Transport Program (STP), focusing on digitizing ministry processes and e-payment, establishing a world-class traffic management system, developing a multi-modal transport system to reduce the carbon footprint, and creating jobs and empowerment opportunities for the youth through the transport sector. These initiatives aim to modernize the transport infrastructure and ensure an efficient, sustainable, and smart transport system.",
-    },
-  ];
 
   return (
     <section className="flex flex-col items-center justify-center p-20">
@@ -67,7 +43,7 @@ export const Faq = () => {
       <div className="text-center">
         <h1 className="text-green-800 text-5xl font-bold p-5 border-b">FAQ's</h1>
         <div className="flex flex-col items-center">
-          {faqData.map((faq, index) => (
+          {faqs.map((faq, index) => (
             <FaqItem
               key={index}
               question={faq.question}
@@ -83,25 +59,25 @@ export const Faq = () => {
           icon={MdOutlineMailOutline}
           title="Email"
           description1="Contact us at"
-          description2="transport@enugustate.gov.ng"
+          description2={details.email}
         />
         <ContactItem
           icon={FaPhoneAlt}
           title="Phone"
           description1="Reach out to us by phone"
-          description2="07040244022"
+          description2={details.phone}
         />
         <ContactItem
           icon={CiLocationOn}
           title="Location"
           description1="Find us at our office"
-          description2="No. 5 FSP Avenue, Independence Layout Enugu"
+          description2={details.address}
         />
         <ContactItem
           icon={IoMdTime}
           title="Office Hours"
           description1="Our working hours"
-          description2="8:00 AM - 5:00 PM"
+          description2={details.office_hours}
         />
       </div>
         </div>

@@ -20,41 +20,20 @@ export const Welcome = ({ ministry }) => {
     return text.length > 150 ? text.substring(0, 150) + "..." : text;
   };
 
-  const infoData = [
-    {
-      title: "About Us",
-      imgSrc:
-        "https://etransport.enugustate.gov.ng/storage/images/ministry_image/TB4ygOfpxfFDuoj1U8jLBk8nvDGRaIdyrAuFngji.webp",
-      subtitle: ministry.ministryDetails.name,
-      description: trimDescription(
-        "To build a world-class, efficient, sustainable and smart transport system."
-      ),
-    },
-    {
-      title: "Leadership",
-      imgSrc:
-        "https://etransport.enugustate.gov.ng/storage/images/commissioner_image/b9XXZJNWzErVXQMKs2LjQw1Y0NL1Bx6FbJWYVnaM.jpg",
-      subtitle: ministry.commissionerDetails.name,
-      description: trimDescription(
-        ministry.commissionerDetails.biography
-      ),
-    },
-  ];
+  console.log("ministry:", ministry);
 
   return (
     <section className="flex items-center justify-center">
       <div className="container flex flex-col gap-14 items-center justify-center p-20">
         <p className="text-green-800 text-5xl font-bold">Welcome!</p>
         <div className="flex justify-center gap-20">
-          {infoData.map((info, index) => (
+          
             <InfoCard
-              key={index}
-              title={info.title}
-              imgSrc={info.imgSrc}
-              subtitle={info.subtitle}
-              description={info.description}
+              title={ministry.heroDetails.title}
+              imgSrc={ministry.heroDetails.hero_image}
+              subtitle={ministry.heroDetails.subtitle}
+              description="Description"
             />
-          ))}
         </div>
       </div>
     </section>
