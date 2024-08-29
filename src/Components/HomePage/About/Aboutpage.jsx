@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { NavBar } from "../NavBar"
+import { useContext, useEffect } from "react";
 import { AboutUs } from "./AboutUs"
 import { Hero } from "./Hero"
 import { Leadership } from "./Leadership"
@@ -10,6 +9,10 @@ import { UserContext } from "../../UserContext";
 
 export const AboutPage = () =>{
     const { ministry, loading, error } = useContext(UserContext);
+    
+    useEffect(() => {
+        console.log('Ministry in AboutPage:', ministry);
+      }, [ministry]);
 
     return(
         <div>
