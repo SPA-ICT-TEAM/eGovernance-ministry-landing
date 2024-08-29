@@ -22,7 +22,9 @@ export const NavBar = () => {
               <Link to="/eService">E-Services</Link>
             </li>
             <li>ENSG</li>
-            <li>News</li>
+            <li>
+              <Link to="/contact">Contact Us</Link>
+            </li>
             <li>Project</li>
             <li>Contact</li>
           </ul>
