@@ -1,4 +1,11 @@
+import { useContext } from "react";
+import { UserContext } from "../../UserContext";
+
+import load from "../../../assets/images/loading.gif";
+import logo from "../../../assets/images/logo.png";
+
 const ProjectCard = ({ imgSrc, title, description }) => {
+
   const trimDescription = (text) => {
     return text.length > 10 ? text.substring(0, 100) + "..." : text;
   };
@@ -20,8 +27,9 @@ const ProjectCard = ({ imgSrc, title, description }) => {
   );
 };
 
-export const Project = ({ projects }) => {
-  
+export const Project = () => {
+  const { ministry, loading, error } = useContext(UserContext);
+  const projects = ministry?.projects;
 
   return (
     <section className="flex items-center justify-center bg-gray-100">
@@ -34,7 +42,7 @@ export const Project = ({ projects }) => {
           </p>
         </div>
         <div className="flex flex-wrap gap-8">
-          {projects.map((project, index) => (
+          {(projects && projects.length > 0) && projects.map((project, index) => (
             <ProjectCard
               key={index}
               imgSrc={project.image_path}
@@ -42,6 +50,11 @@ export const Project = ({ projects }) => {
               description={project.description}
             />
           ))}
+          {(!projects || projects.length === 0) && (
+            <div>
+              <img src={load} alt="loading..." /> {/* Use the imported loading image */}
+            </div>
+          )}
         </div>
       </div>
     </section>

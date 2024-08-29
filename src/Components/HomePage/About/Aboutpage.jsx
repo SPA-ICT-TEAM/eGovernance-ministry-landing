@@ -13,6 +13,11 @@ export const AboutPage = () =>{
     useEffect(() => {
         console.log('Ministry in AboutPage:', ministry);
       }, [ministry]);
+      console.log("ministry:", ministry);
+
+    if (loading) {
+        return 'Loading...'
+    }
 
     return(
         <div>
