@@ -37,6 +37,3 @@ export const NavBar = () => {
     </nav>
   );
 };
-
-import React from "react";
-
