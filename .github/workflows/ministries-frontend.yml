@@ -1,0 +1,29 @@
+   name: Ministries Frontend CI/CD
+
+   on:
+     push:
+       paths:
+         - 'frontend/ministry/**'
+     workflow_dispatch:
+
+   jobs:
+     build-and-deploy:
+       runs-on: ubuntu-latest
+       steps:
+         - uses: actions/checkout@v2
+         - name: Use Node.js
+           uses: actions/setup-node@v2
+           with:
+             node-version: '16'
+         - run: |
+             cd frontend/ministry
+             npm ci
+             npm run build
+         - name: Deploy to Server
+           uses: appleboy/scp-action@master
+           with:
+             host: "63.250.32.131"
+             username: ${{ secrets.USERNAME }}
+             password: ${{ secrets.PASSWORD }}
+             source: "frontend/ministry/dist/*"
+             target: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry"
