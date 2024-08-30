@@ -3,7 +3,7 @@
    on:
      push:
        paths:
-         - '/home/eportal/web/staging.enugustate.gov.ng/public_html/frontend/ministry/**'
+         - '/home/eportal/web/staging.enugustate.gov.ng/public_html/frontends/ministry/**'
      workflow_dispatch:
 
    jobs:
@@ -16,7 +16,7 @@
            with:
              node-version: '20'
          - run: |
-             cd /home/eportal/web/staging.enugustate.gov.ng/public_html/frontend/ministry
+             cd /home/eportal/web/staging.enugustate.gov.ng/public_html/frontends/ministry
              npm ci
              npm run build
          - name: Deploy to Server
@@ -25,5 +25,5 @@
              host: "63.250.32.131"
              username: ${{ secrets.SSH_USERNAME }}
              password: ${{ secrets.SSH_PASSWORD }}
-             source: "/home/eportal/web/staging.enugustate.gov.ng/public_html/frontend/ministry/dist/*"
+             source: "/home/eportal/web/staging.enugustate.gov.ng/public_html/frontends/ministry/dist/*"
              target: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry"
