@@ -1,4 +1,4 @@
-   name: Ministries Frontend CI/CD
+   name: Ministries Frontend CI/CD Setup
 
    on:
      push:
