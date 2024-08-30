@@ -3,7 +3,7 @@
    on:
      push:
        paths:
-         - '/home/eportal/web/staging.enugustate.gov.ng/public_html/ministry/frontend/ministry/**'
+         - '/home/eportal/web/staging.enugustate.gov.ng/public_html/frontend/ministry/**'
      workflow_dispatch:
 
    jobs:
