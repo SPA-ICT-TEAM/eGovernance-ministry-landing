@@ -14,7 +14,7 @@
          - name: Use Node.js
            uses: actions/setup-node@v2
            with:
-             node-version: '16'
+             node-version: '20'
          - run: |
              cd frontend/ministry
              npm ci
@@ -23,7 +23,7 @@
            uses: appleboy/scp-action@master
            with:
              host: "63.250.32.131"
-             username: ${{ secrets.USERNAME }}
-             password: ${{ secrets.PASSWORD }}
-             source: "frontend/ministry/dist/*"
+             username: ${{ secrets.SSH_USERNAME }}
+             password: ${{ secrets.SSH_PASSWORD }}
+             source: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry/frontend/ministry/dist/*"
              target: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry"
