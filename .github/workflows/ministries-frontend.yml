@@ -25,5 +25,5 @@
              host: "63.250.32.131"
              username: ${{ secrets.SSH_USERNAME }}
              password: ${{ secrets.SSH_PASSWORD }}
-             source: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry/frontend/ministry/dist/*"
+             source: "/home/eportal/web/staging.enugustate.gov.ng/public_html/ministry/frontend/ministry/dist/*"
              target: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry"
