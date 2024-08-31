@@ -7,6 +7,8 @@ import { Project } from "./Project";
 import { Welcome } from "./Welcome";
 import { UserContext } from "../UserContext";
 import logo from "../../assets/images/logo.png"
+import Footer from "./../Footer/Footer";
+
 
 function HomePage(){
   const { ministry, loading, error } = useContext(UserContext);
@@ -26,6 +28,7 @@ function HomePage(){
       <Eservice ministry={ministry}/>
       <Project projects={ministry.projects} />
       <Faq faqs={ministry.ministryFAQ} details={ministry.ministryDetailsTwo} />
+      <Footer />
     </div>
   )
 }

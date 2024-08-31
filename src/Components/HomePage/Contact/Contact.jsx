@@ -5,13 +5,13 @@ import { ContactForm } from "./ContactForm";
 import ReCAPTCHA from 'react-google-recaptcha';
 
 import { UserContext } from "../../UserContext";
-
+import Footer from "../../Footer/Footer";
 export const Contact = () => {
     const { ministry, loading, error } = useContext(UserContext);
 
     useEffect(() => {
       }, [ministry]);
-    
+
     if (loading) {
         return 'Loading...'
     }
@@ -25,6 +25,7 @@ export const Contact = () => {
             <Hero text={text} title="Get in Touch" />
             <ContactInfo address={address} email={email} phone={phone} officeHours={office_hours} />
             <ContactForm />
+            <Footer />
         </div>
     )
 }

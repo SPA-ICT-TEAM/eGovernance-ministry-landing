@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../../UserContext";
 import { Hero } from "./Hero"
 import { Services } from "./Services"
+import Footer from "../../Footer/Footer";
 
 export const Eservicepage = ()=>{
     const { ministry, loading, error } = useContext(UserContext);
@@ -10,6 +11,7 @@ export const Eservicepage = ()=>{
         <div className="bg-gray-200 min-h-screen">
             <Hero/>
             <Services services={ministry.services} />
+            <Footer />
         </div>
     )
 }

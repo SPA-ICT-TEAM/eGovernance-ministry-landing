@@ -1,10 +1,10 @@
 const InfoCard = ({ title, description }) => (
-    <div className="flex flex-col p-6 gap-8 mx-4 w-[120%] bg-green-600 rounded-lg text-white">
+    <div className="flex flex-col p-6 gap-8 mx-4 w-full md:w-[45%] bg-green-600 rounded-lg text-white">
       <p className="text-3xl text-center">{title}</p>
       <p className="text-center" dangerouslySetInnerHTML={{ __html: description }} />
     </div>
   );
-  
+
   export const Mission = ({ mission, vision}) => {
     const info = [
       {
@@ -16,10 +16,10 @@ const InfoCard = ({ title, description }) => (
         description: "To build a world-class, efficient, sustainable and smart transport system."
       }
     ];
-  
+
     return (
       <section className="p-20 w-full flex items-center justify-center">
-        <div className="container flex w-full justify-between px-36">
+        <div className="container flex flex-col md:flex-row w-full justify-between px-6 md:px-36 gap-8">
             <InfoCard title="Our Mission" description={mission} />
             <InfoCard title="Our Vision" description={vision} />
         </div>
