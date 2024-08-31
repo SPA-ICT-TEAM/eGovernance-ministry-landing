@@ -3,6 +3,7 @@ import { UserContext } from "../../UserContext";
 
 import load from "../../../assets/images/loading.gif";
 import logo from "../../../assets/images/logo.png";
+import Footer from "../../Footer/Footer";
 
 const ProjectCard = ({ imgSrc, title, description }) => {
 
@@ -32,6 +33,7 @@ export const Project = () => {
   const projects = ministry?.projects;
 
   return (
+    <>
     <section className="flex items-center justify-center bg-gray-100">
       <div className="container flex flex-col gap-14 items-center justify-center p-20">
         <div className="max-w-[800px] flex flex-col items-center gap-6">
@@ -58,5 +60,7 @@ export const Project = () => {
         </div>
       </div>
     </section>
+
+    </>
   );
 };
