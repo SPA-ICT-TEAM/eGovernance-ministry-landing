@@ -1,29 +1,38 @@
-   name: Ministries Frontend CI/CD Setup
+name: Ministries Frontend CI/CD Setup
 
-   on:
-     push:
-       paths:
-         - '/home/eportal/web/staging.enugustate.gov.ng/public_html/frontends/ministry/**'
-     workflow_dispatch:
+on:
+  push:
+    branches:
+      - main  # Ensure this matches your branch where you push updates
+  workflow_dispatch:
 
-   jobs:
-     build-and-deploy:
-       runs-on: ubuntu-latest
-       steps:
-         - uses: actions/checkout@v2
-         - name: Use Node.js
-           uses: actions/setup-node@v2
-           with:
-             node-version: '20'
-         - run: |
-             cd /home/eportal/web/staging.enugustate.gov.ng/public_html/frontends/ministry
-             npm ci
-             npm run build
-         - name: Deploy to Server
-           uses: appleboy/scp-action@master
-           with:
-             host: "63.250.32.131"
-             username: ${{ secrets.SSH_USERNAME }}
-             password: ${{ secrets.SSH_PASSWORD }}
-             source: "/home/eportal/web/staging.enugustate.gov.ng/public_html/frontends/ministry/dist/*"
-             target: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry"
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - uses: actions/checkout@v2
+
+      # Set up Node.js environment on the runner
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      # Install dependencies and build the project
+      - name: Install dependencies and build
+        run: |
+          cd frontends/ministry  # Ensure this path matches your repo structure
+          npm ci
+          npm run build
+
+      # Deploy built files to the remote server using SCP
+      - name: Deploy to Server
+        uses: appleboy/scp-action@master
+        with:
+          host: "63.250.32.131"
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: "frontends/ministry/dist/*"  # Path to the build output on the runner
+          target: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry"  # Deploy to the appropriate directory on your server
