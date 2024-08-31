@@ -1,11 +1,17 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../UserContext";
 
 import load from "../../../assets/images/loading.gif";
 import logo from "../../../assets/images/logo.png";
 import Footer from "../../Footer/Footer";
 
-const ProjectCard = ({ imgSrc, title, description }) => {
+const ProjectCard = ({ imgSrc, title, description, id }) => { // Add id prop
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleReadMore = () => {
+    navigate(`/project/${id}`); // Navigate to project/:id
+  };
 
   const trimDescription = (text) => {
     return text.length > 10 ? text.substring(0, 100) + "..." : text;
@@ -23,6 +29,12 @@ const ProjectCard = ({ imgSrc, title, description }) => {
             {trimDescription(description)}
           </p>
         </div>
+        <button 
+          className="mt-4 bg-blue-500 text-white py-2 px-4 rounded" 
+          onClick={handleReadMore} // Add onClick handler
+        >
+          Read More
+        </button>
       </div>
     </div>
   );
@@ -32,9 +44,16 @@ export const Project = () => {
   const { ministry, loading, error } = useContext(UserContext);
   const projects = ministry?.projects;
 
+  useEffect(() => {
+    }, [ministry]);
+
+  if (loading) {
+      return 'Loading...'
+  }
+
   return (
     <>
-    <section className="flex items-center justify-center bg-gray-100">
+    <section id="MainContent" className="flex items-center justify-center bg-gray-100">
       <div className="container flex flex-col gap-14 items-center justify-center p-20">
         <div className="max-w-[800px] flex flex-col items-center gap-6">
           <p className="text-green-800 text-5xl font-bold">Our Projects</p>
@@ -50,6 +69,7 @@ export const Project = () => {
               imgSrc={project.image_path}
               title={project.name}
               description={project.description}
+              id={project.id} // Pass project id
             />
           ))}
           {(!projects || projects.length === 0) && (
@@ -60,7 +80,7 @@ export const Project = () => {
         </div>
       </div>
     </section>
-
+    <Footer />
     </>
   );
 };

@@ -6,23 +6,31 @@ import { Eservicepage } from "./Components/HomePage/E-services/Eservices";
 import { OurService } from "./Components/HomePage/About/OurServices/Ourservice";
 import { Contact } from "./Components/HomePage/Contact/Contact";
 import { UserProvider } from './Components/UserContext'; 
+import { ProjectProvider } from "./Components/ProjectContext";
+import { DomainProvider } from "./Components/DomainContext";
 import { Project } from "./Components/HomePage/Project";
+import { ViewProject } from "./Components/HomePage/Project/ViewProject";
 
 function App() {
     return (
-      <UserProvider> 
-        <Router>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/eService" element={<Eservicepage />} />
-            <Route path="/services" element={<OurService />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/project" element={<Project />} />
-          </Routes>
-        </Router>
-      </UserProvider>
+      <DomainProvider>
+        <UserProvider> 
+          <ProjectProvider>
+            <Router>
+              <NavBar />
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/eService" element={<Eservicepage />} />
+                <Route path="/services" element={<OurService />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/project" element={<Project />} />
+                <Route path="/project/:id" element={<ViewProject />} />
+              </Routes>
+            </Router>
+          </ProjectProvider>
+        </UserProvider>
+      </DomainProvider>
     );
 }
 
