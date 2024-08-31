@@ -11,7 +11,7 @@ import logo from "../../assets/images/logo.png"
 function HomePage(){
   const { ministry, loading, error } = useContext(UserContext);
 
-  if (loading) return( 
+  if (loading) return(
     <div className="size-full h-screen flex flex-col items-center justify-center">
       <img src={logo} alt="logo" className="w-[150px]" />
       <p>Loading...</p>
