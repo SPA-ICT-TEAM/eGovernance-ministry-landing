@@ -14,14 +14,8 @@ jobs:
       # Checkout the repository to the GitHub Actions runner
       - uses: actions/checkout@v2
 
-      # Set up Node.js environment on the runner
-      - name: Use Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'
-
-      # Install dependencies and build the project
-      - name: Install dependencies and build
+      # Set up SSH to execute commands on the remote server
+      - name: Execute remote SSH commands
         run: |
           cd frontends/ministry  # Ensure this path matches your repo structure
           npm ci
@@ -34,5 +28,9 @@ jobs:
           host: "63.250.32.131"
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          source: "frontends/ministry/dist/*"  # Path to the build output on the runner
-          target: "/home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry"  # Deploy to the appropriate directory on your server
+          script: |
+            cd /home/eportal/web/staging.enugustate.gov.ng/public_html/frontends/ministry
+            git pull origin main  # Pull the latest changes from the repository
+            npm install  # Install dependencies
+            npm run build  # Build the project
+            cp -r dist/* /home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry/  # Copy the built files to the public directory
