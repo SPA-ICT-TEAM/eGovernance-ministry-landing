@@ -18,7 +18,7 @@ export const UserProvider = ({ children }) => {
 
     if(!domainLoading) {
       domain = `https://${domain}`;
-      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-housing.enugustate.gov.ng';
+      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-etransport.enugustate.gov.ng';
       url = `${baseUrl}/api/public/ministry`;
       console.log('domain', domain);
       console.log('base Url', baseUrl);

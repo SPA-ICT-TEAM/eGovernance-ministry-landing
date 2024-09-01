@@ -26,7 +26,7 @@ function HomePage(){
       <Hero ministry={ministry} />
       <Welcome ministry={ministry}/>
       <Eservice ministry={ministry}/>
-      <Project projects={ministry.projects} />
+      <Project projects={ministry.projects} AddFooter={false} />
       <Faq faqs={ministry.ministryFAQ} details={ministry.ministryDetailsTwo} />
       <Footer />
     </div>

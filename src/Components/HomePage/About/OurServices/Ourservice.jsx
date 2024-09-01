@@ -40,7 +40,7 @@ export const OurService = () => {
           </p>
         </div>
 
-        { renderServices(ministry.ourServices) }
+        { (ministry && ministry.ourServices) && renderServices(ministry.ourServices) }
         
       </div>
     </div>

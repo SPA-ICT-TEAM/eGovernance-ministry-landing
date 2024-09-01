@@ -40,7 +40,7 @@ const ProjectCard = ({ imgSrc, title, description, id }) => { // Add id prop
   );
 };
 
-export const Project = () => {
+export const Project = ({AddFooter}) => {
   const { ministry, loading, error } = useContext(UserContext);
   const projects = ministry?.projects;
 
@@ -80,7 +80,7 @@ export const Project = () => {
         </div>
       </div>
     </section>
-    <Footer />
+    {AddFooter && <Footer />}
     </>
   );
 };

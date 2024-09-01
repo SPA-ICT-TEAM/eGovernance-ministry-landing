@@ -24,7 +24,7 @@ function App() {
                 <Route path="/eService" element={<Eservicepage />} />
                 <Route path="/services" element={<OurService />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/project" element={<Project />} />
+                <Route path="/project" element={<Project AddFooter={true} />} />
                 <Route path="/project/:id" element={<ViewProject />} />
               </Routes>
             </Router>
