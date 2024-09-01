@@ -21,6 +21,9 @@ export const UserProvider = ({ children }) => {
       const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-etransport.enugustate.gov.ng';
       url = `${baseUrl}/api/public/ministry`;
     }
+    console.log('domain', domain);
+    console.log('base Url', baseUrl);
+    console.log('url', url);
 
     const fetchMinistry = async (url) => {
       try {
