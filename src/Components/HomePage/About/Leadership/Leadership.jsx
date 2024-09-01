@@ -6,18 +6,18 @@ export const Leadership = ({ leader }) => {
           <h2 className="text-4xl text-green-600 font-bold">Leadership</h2>
           <div className="w-full rounded-lg overflow-hidden md:hidden">
             <img
-              src={leader.photo}
-              alt={leader.name}
+              src={leader?.photo}
+              alt={leader?.name}
               className="w-full h-auto object-cover"
             />
           </div>
-          <h3 className="font-extrabold text-[20px]">{leader.name}</h3>
-          <div dangerouslySetInnerHTML={{ __html: leader.biography }} />
+          <h3 className="font-extrabold text-[20px]">{leader?.name}</h3>
+          <div dangerouslySetInnerHTML={{ __html: leader?.biography }} />
         </div>
         <div className="w-full rounded-lg overflow-hidden order-2 md:order-1 hidden md:block">
           <img
-            src={leader.photo}
-            alt={leader.name}
+            src={leader?.photo}
+            alt={leader?.name}
             className="w-full h-auto object-cover"
           />
         </div>

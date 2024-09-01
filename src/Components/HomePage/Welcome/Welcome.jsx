@@ -28,15 +28,15 @@ export const Welcome = ({ ministry }) => {
         <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-20 w-full">
 
             <InfoCard
-              title={ministry.heroDetails.title}
-              imgSrc={ministry.heroDetails.hero_image}
-              subtitle={ministry.heroDetails.subtitle}
+              title={ministry?.heroDetails?.title}
+              imgSrc={ministry?.heroDetails?.hero_image}
+              subtitle={ministry?.heroDetails?.subtitle}
               description="Description"
             />
             <InfoCard
-              title={ministry.heroDetails.title}
-              imgSrc={ministry.heroDetails.hero_image}
-              subtitle={ministry.heroDetails.subtitle}
+              title={ministry?.heroDetails?.title}
+              imgSrc={ministry?.heroDetails?.hero_image}
+              subtitle={ministry?.heroDetails?.subtitle}
               description="Description"
             />
         </div>

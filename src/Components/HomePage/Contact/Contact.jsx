@@ -18,7 +18,10 @@ export const Contact = () => {
 
     let text = "Have a question or want to work together? Fill out the form below and we'll get back to you";
     console.log('details:', ministry)
-    let {address, email, phone, office_hours} = ministry?.ministryDetailsTwo
+    const defaultInfo = {address:'Coming Soon', email:'Coming Soon', phone:'Coming Soon', office_hours: ''};
+    let details = ministry?.ministryDetailsTwo;
+
+    let {address, email, phone, office_hours} = (details) ? details : defaultInfo;
 
     return(
         <div>

@@ -21,7 +21,7 @@ function HomePage(){
   );
   if (error) return <p>Error: {error}</p>;
 
-  return(
+  return (!ministry) ? (<div><Hero ministry={ministry} /></div>) : (
     <div>
       <Hero ministry={ministry} />
       <Welcome ministry={ministry}/>

@@ -20,11 +20,11 @@ export const AboutPage = () =>{
 
     return(
         <div>
-            <Hero title="About" name={ministry.ministryDetails.name} />
-            <Mission mission={ministry.ministryDetailsTwo.mission} vision={ministry.ministryDetailsTwo.vision} />
-            <AboutUs about={ministry.ministryDetailsTwo.about} />
-            <Leadership leader={ministry.commissionerDetails} />
-            <Qualifications achievements={ministry.commissionerDetails.achievements} professional={ministry.commissionerDetails.professional} />
+            <Hero title="About" name={ministry?.ministryDetails?.name} />
+            <Mission mission={ministry?.ministryDetailsTwo?.mission} vision={ministry?.ministryDetailsTwo?.vision} />
+            <AboutUs about={ministry?.ministryDetailsTwo?.about} />
+            <Leadership leader={ministry?.commissionerDetails} />
+            <Qualifications achievements={ministry?.commissionerDetails?.achievements} professional={ministry?.commissionerDetails?.professional} />
             <Footer />
         </div>
     )
