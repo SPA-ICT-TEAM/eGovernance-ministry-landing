@@ -12,7 +12,7 @@ export const ProjectProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { domain, domainError, domainLoading } = useContext(DomainContext);
+  let { domain, domainError, domainLoading } = useContext(DomainContext);
   // if(!domainLoading) {
   //   // console.log('domain loading', domainLoading);
   //   const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-etransport.enugustate.gov.ng';
@@ -23,12 +23,9 @@ export const ProjectProvider = ({ children }) => {
     let url; 
 
     if(!domainLoading) {
+      domain = `https://${domain}`;
       const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-etransport.enugustate.gov.ng';
       url = `${baseUrl}/api/public/ministry/projects/${id}`;
-
-      console.log('domain', domain);
-      console.log('base Url', baseUrl);
-      console.log('url', url);
     }
 
     const fetchProject = async (url) => {

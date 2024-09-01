@@ -11,14 +11,14 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const { domain, domainError, domainLoading } = useContext(DomainContext);
+  let { domain, domainError, domainLoading } = useContext(DomainContext);
 
   useEffect(() => {
     let url; 
 
     if(!domainLoading) {
-      const baseUrl = domain;
-      // const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-etransport.enugustate.gov.ng';
+      domain = `https://${domain}`;
+      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-etransport.enugustate.gov.ng';
       url = `${baseUrl}/api/public/ministry`;
       console.log('domain', domain);
       console.log('base Url', baseUrl);
@@ -27,7 +27,7 @@ export const UserProvider = ({ children }) => {
 
     const fetchMinistry = async (url) => {
       try {
-        // console.log('url',url);
+        console.log('url2',url);
         const response = await axios.get(url);
         // console.log(response);
         setMinistry(response.data);
