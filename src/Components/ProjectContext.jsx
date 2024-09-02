@@ -20,11 +20,11 @@ export const ProjectProvider = ({ children }) => {
   // }
 
   useEffect(() => {
-    let url; 
+    let url;
 
     if(!domainLoading) {
       domain = `https://${domain}`;
-      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-etransport.enugustate.gov.ng';
+      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://etransport.enugustate.gov.ng';
       url = `${baseUrl}/api/public/ministry/projects/${id}`;
     }
 
