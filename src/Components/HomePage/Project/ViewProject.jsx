@@ -1,8 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { ProjectContext } from "../../ProjectContext";
-import { UserContext } from "../../UserContext";
-import { TestContext } from "../../TestContext";
 import Footer from "../../Footer/Footer";
 
 import load from "../../../assets/images/loading.gif";
