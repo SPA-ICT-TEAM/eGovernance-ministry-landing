@@ -8,7 +8,7 @@ export const ProjectContext = createContext();
 
 export const ProjectProvider = ({ children }) => {
   const [project, setProject] = useState([]);
-  const [id, setId] = useState([]);
+  const [id, setId] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -22,9 +22,9 @@ export const ProjectProvider = ({ children }) => {
   useEffect(() => {
     let url; 
 
-    if(!domainLoading) {
+    if(!domainLoading && id != null) {
       domain = `https://${domain}`;
-      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://staging-etransport.enugustate.gov.ng';
+      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://etransport.enugustate.gov.ng';
       url = `${baseUrl}/api/public/ministry/projects/${id}`;
     }
 

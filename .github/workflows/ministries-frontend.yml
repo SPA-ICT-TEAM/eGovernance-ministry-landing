@@ -29,8 +29,8 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd /home/eportal/web/staging.enugustate.gov.ng/public_html/frontends/ministry
+            cd /home/eportal/web/enugustate.gov.ng/public_html/frontends/ministry
             git pull origin main  # Pull the latest changes from the repository
             npm install  # Install dependencies
             npm run build  # Build the project
-            cp -r dist/* /home/eportal/web/staging.enugustate.gov.ng/public_html/public/ministry/  # Copy the built files to the public directory
+            cp -r dist/* /home/eportal/web/enugustate.gov.ng/public_html/public/ministry/  # Copy the built files to the public directory
