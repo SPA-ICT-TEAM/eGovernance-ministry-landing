@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
   let { domain, domainError, domainLoading } = useContext(DomainContext);
 
   useEffect(() => {
-    let url; 
+    let url;
 
     if(!domainLoading) {
       domain = `https://${domain}`;

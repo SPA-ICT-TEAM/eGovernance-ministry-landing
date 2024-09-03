@@ -20,7 +20,7 @@ export const ProjectProvider = ({ children }) => {
   // }
 
   useEffect(() => {
-    let url; 
+    let url;
 
     if(!domainLoading && id != null) {
       domain = `https://${domain}`;
