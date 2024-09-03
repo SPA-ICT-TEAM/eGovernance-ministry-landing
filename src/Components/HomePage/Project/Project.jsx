@@ -72,9 +72,14 @@ export const Project = ({AddFooter}) => {
               id={project.id} // Pass project id
             />
           ))}
-          {(!projects || projects.length === 0) && (
+          {(loading) && (
             <div>
               <img src={load} alt="loading..." /> {/* Use the imported loading image */}
+            </div>
+          )}
+          {(!loading && (!projects || projects.length === 0)) && (
+            <div className="text-gray-500 text-[2em]">
+                There are no projects Available
             </div>
           )}
         </div>

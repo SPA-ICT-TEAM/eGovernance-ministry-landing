@@ -1,5 +1,18 @@
 import noImage from "../../../assets/images/no-image.jpg"
+import { Link } from "react-router-dom";
+import leaderImg from "../../../assets/images/about-peter.jpg";
+import enugu from "../../../assets/images/enugu.jpeg";
 
+const defaultData = {
+    "ministry": {
+      "name": "MINISTRY",
+      "about": "Our vision is to create a progressive, inclusive, and responsive governance system that leverages technology to enhance service delivery, transparency, and citizen engagement."
+    },
+    "commissioner": {
+        "name": "OUR COMMISSIONER",
+        "bio": "Our Commissioner is a dedicated leader with a wealth of experience in public service. Committed to innovation and excellence, they strive to enhance the quality of life for all citizens through effective governance and strategic initiatives."
+    }
+}
 
 const trimDescription = (text) => {
     return text.length > 10 ? text.substring(0, 100) + "..." : text;
@@ -15,9 +28,11 @@ const InfoCard = ({ title, imgSrc, subtitle, description }) => (
       <p className="text-[20px] font-semibold">{subtitle}</p>
       <div dangerouslySetInnerHTML={{ __html: trimDescription(description) }} />
     </div>
-    <button className="bg-green-500 p-3 rounded-lg hover:bg-green-800 text-white font-bold self-start">
-      Read More
-    </button>
+    <Link to="/about">
+      <button className="bg-green-500 p-3 rounded-lg hover:bg-green-800 text-white font-bold self-start">
+        Read More
+      </button>
+    </Link>
   </div>
 );
 
@@ -25,7 +40,10 @@ export const Welcome = ({ ministry }) => {
   const trimDescription = (text) => {
     return text.length > 150 ? text.substring(0, 150) + "..." : text;
   };
-  let ministryLogo = (ministry?.ministryDetails?.logo) ? ministry?.ministryDetails?.logo : noImage;
+  // ministryDetailsTwo
+  // if(ministry?.ministryDetails?.logo)
+  let ministryLogo = (ministry?.ministryDetails?.logo) ? ministry?.ministryDetails?.logo : ((ministry?.ministryDetailsTwo?.photo) ? ministry?.ministryDetailsTwo?.photo : enugu);
+  let leaderPhoto = (ministry?.commissionerDetails?.photo) ? ministry?.commissionerDetails?.photo : leaderImg
 
   console.log("ministry:", ministry);
 
@@ -38,14 +56,14 @@ export const Welcome = ({ ministry }) => {
             <InfoCard
               title="About Us"
               imgSrc={ministryLogo}
-              subtitle={ministry?.ministryDetails?.name}
-              description={ministry?.ministryDetailsTwo?.about}
+              subtitle={ministry?.ministryDetails?.name ?? defaultData.ministry.name}
+              description={ministry?.ministryDetailsTwo?.about ?? defaultData.ministry.about}
             />
             <InfoCard
               title="Leadership"
-              imgSrc={ministry?.commissionerDetails?.photo}
-              subtitle={ministry?.commissionerDetails?.name}
-              description={ministry?.commissionerDetails?.biography}
+              imgSrc={leaderPhoto}
+              subtitle={ministry?.commissionerDetails?.name ?? defaultData.commissioner.name}
+              description={ministry?.commissionerDetails?.biography ?? defaultData.commissioner.bio}
             />
         </div>
       </div>

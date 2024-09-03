@@ -1,6 +1,7 @@
 import { FiBriefcase, FiShoppingCart } from "react-icons/fi";
 import { useLocation } from "react-router-dom";
 import { ServiceCard } from "../../Cards/ServiceCard";
+import { Link } from "react-router-dom";
 
 
 export const Eservice = ({ ministry }) => {
@@ -21,7 +22,8 @@ export const Eservice = ({ ministry }) => {
             />
           ))}
         </div>
-        <p className="text-green-500 cursor-pointer">More on e-services</p>
+        <Link to="/eService">More on e-services</Link>
+        {/* <p className="text-green-500 cursor-pointer">More on e-services</p> */}
       </div>
     </section>
     </>

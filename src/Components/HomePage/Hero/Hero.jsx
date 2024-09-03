@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import noImage from "../../../assets/images/no-image.jpg";
+// import defaultHero from "../../../assets/images/hero.jpg";
 
 export const Hero = ({ ministry }) => {
   useEffect(() => {
@@ -12,7 +12,7 @@ export const Hero = ({ ministry }) => {
       return(
         <section className="flex items-center justify-center">
         <div
-          className="relative p-24 w-full  bg-cover bg-center pb-48 pt-36 text-white bg-[url('../../../assets/images/no-image.jpg')]"
+          className="relative p-24 w-full  bg-cover bg-center pb-48 pt-36 text-white bg-[url('../../../assets/images/hero.jpeg')]"
         >
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="relative flex flex-col gap-6 container pb-16">
