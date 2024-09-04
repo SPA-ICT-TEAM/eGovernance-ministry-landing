@@ -59,7 +59,7 @@ export const Hero = ({ ministry }) => {
           <div
             data-aos="fade-left"
           >
-            <a href={ministry?.heroDetails?.button_link}>
+            <a href="/about">
               <button className="bg-green-500 p-3 rounded-lg hover:bg-green-700 text-white font-bold">
                 {ministry?.heroDetails?.button_text}
               </button>

@@ -34,7 +34,7 @@ export const NavBar = () => {
             <li>
               <Link to="/eService">E-Services</Link>
             </li>
-            <li>ENSG</li>
+            <li><a href=" https://enugustate.gov.ng" target="blank">ENSG</a></li>
             <li>
               <Link to="/project">Project</Link>
             </li>
