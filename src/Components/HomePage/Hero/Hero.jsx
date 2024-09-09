@@ -37,7 +37,7 @@ export const Hero = ({ ministry }) => {
   return (!ministry || !ministry?.heroDetails) ? defaultHero() :  (
     <section className="flex items-center justify-center">
       <div
-        className="relative p-24 w-full  bg-cover bg-center pb-48 pt-36 text-white"
+        className="relative p-24 w-full  bg-cover bg-top pb-48 pt-36 text-white"
         style={{
           backgroundImage: `url(${(ministry.heroDetails.hero_image) ? ministry.heroDetails.hero_image : noImage})`,
         }}

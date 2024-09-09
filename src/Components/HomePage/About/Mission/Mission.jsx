@@ -1,5 +1,5 @@
 const InfoCard = ({ title, description }) => (
-    <div className="flex flex-col p-6 gap-8 mx-4 w-full md:w-[45%] bg-green-600 rounded-lg text-white">
+    <div className="flex flex-col py-10 px-5 gap-8 mx-4 w-full bg-green-600 rounded-lg text-white">
       <p className="text-3xl text-center">{title}</p>
       <p className="text-center" dangerouslySetInnerHTML={{ __html: description }} />
     </div>
@@ -18,8 +18,8 @@ const InfoCard = ({ title, description }) => (
     ];
 
     return (
-      <section className="p-20 w-full flex items-center justify-center">
-        <div className="container flex flex-col md:flex-row w-full justify-between px-6 md:px-36 gap-8">
+      <section className="py-20 px-8 pb-20 sm:px10 w-full flex items-center">
+        <div className="container mx-auto flex flex-col md:flex-row w-full justify-between px-2 md:px-6 gap-8">
             <InfoCard title="Our Mission" description={mission} />
             <InfoCard title="Our Vision" description={vision} />
         </div>

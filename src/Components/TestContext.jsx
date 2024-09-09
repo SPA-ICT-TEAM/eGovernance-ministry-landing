@@ -12,7 +12,7 @@ export const TestProvider = ({ children }) => {
   useEffect(() => {
     const fetchMinistry = async () => {
       try {
-        const response = await axios.get('https://etransport.enugustate.gov.ng/api/ministry');
+        const response = await axios.get('https://mcgasd.enugustate.gov.ng/api/ministry');
         console.log(response.data.services.services);
         setMinistry(response.data);
       } catch (err) {

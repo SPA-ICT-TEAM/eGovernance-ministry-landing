@@ -24,7 +24,7 @@ export const ProjectProvider = ({ children }) => {
 
     if(!domainLoading && id != null) {
       domain = `https://${domain}`;
-      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://etransport.enugustate.gov.ng';
+      const baseUrl = (!domain.includes('localhost')) ? domain : 'https://mcgasd.enugustate.gov.ng';
       url = `${baseUrl}/api/public/ministry/projects/${id}`;
     }
 
