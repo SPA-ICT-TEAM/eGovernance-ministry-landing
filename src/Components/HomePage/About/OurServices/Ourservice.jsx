@@ -12,7 +12,7 @@ export const OurService = () => {
       return (
         <>
         <div className="text-center mb-20">
-          <h2 className="text-3xl font-bold">Our Services</h2>
+          <h2 className="text-3xl font-medium tracking-tighter sm:text-4xl md:text-5xl text-green-900">Our Services</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-8 lg:px-16 w-full items-start">
           {services.map((service, index) => (
@@ -29,7 +29,12 @@ export const OurService = () => {
       );
     } else {
       return (
-        <section className="w-full py-12 mx-24 md:py-20 lg:py-32 bg-gray-50 pt-32">
+        <>
+         <div className="text-center mb-20">
+          <h2 className="text-3xl font-medium tracking-tighter sm:text-4xl md:text-5xl text-green-900">Our Services</h2>
+        </div>
+        <section className="w-full py-12 mx-24 md:py-20 lg:py-20 bg-gray-50 pt-20">
+
           <div className="container grid items-center justify-center gap-8 md:gap-12 lg:gap-16 px-4 md:px-6 lg:grid-cols-3 pb-20">
             <div className="space-y-3 text-center lg:col-span-1 lg:text-left px-10">
               <h2 className="text-3xl font-medium tracking-tighter sm:text-4xl md:text-5xl text-green-900" data-aos="fade-right">
@@ -45,19 +50,22 @@ export const OurService = () => {
             </div>
           </div>
         </section>
+
+        </>
+
       );
     }
   };
 
   return (
     <main>
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 pt-32">
+      <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50 pt-20">
         <div className="container mx-auto">
           {(ministry && ministry.ourServices) && renderServices(ministry.ourServices)}
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-24 lg:py-32 bg-green-100 flex items-center justify-center mb-[-100px]">
+      <section className="w-full py-12 md:py-24 lg:py-20 bg-green-100 flex items-center justify-center mb-[-100px]">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
